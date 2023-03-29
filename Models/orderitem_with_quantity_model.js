@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 const Order = require("./order_model");
 const ProductItem = require("./product_item_model");
 

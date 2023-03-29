@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 const Agent = require("./ajent_user_model");
 const Admin = require("./admin_user_model");
 
