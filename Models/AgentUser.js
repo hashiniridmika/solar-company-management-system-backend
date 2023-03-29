@@ -1,28 +1,28 @@
 const mongoose = require("mongoose");
 
 const AgentSchema = new mongoose.Schema({
-  AgentName: {
+  agentName: {
     type: String,
   },
-  AgentID: {
+  agentID: {
     type: String,
   },
-  Username: {
+  username: {
     type: String,
   },
-  Password: {
+  password: {
     type: String,
   },
-  EmailAddress: {
+  emailAddress: {
     type: String,
   },
-  MobileNumber: {
+  mobileNumber: {
     type: String,
   },
-  CompanyName: {
+  companyName: {
     type: String,
   },
-  CompanyAddress: {
+  companyAddress: {
     type: String,
   },
 });
