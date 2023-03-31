@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const Agent = require("./ajent_user_model");
+const Agent = require("./agent_user_model");
 const Order = require("./order_model");
 
 const feedbackSchema = new mongoose.Schema(

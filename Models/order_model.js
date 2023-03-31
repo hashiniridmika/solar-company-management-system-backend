@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const Agent = require("./ajent_user_model");
+const Agent = require("./agent_user_model");
 const Admin = require("./admin_user_model");
 
 const orderSchema = new mongoose.Schema(
