@@ -1,18 +1,22 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 const ownerSchema = new mongoose.Schema(
   {
-    usename: {
+    name: {
+      type: String,
+    },
+    username: {
       type: String,
     },
     password: {
       type: String,
     },
-    email: {
+    emailAddress: {
       type: String,
     },
   },
   { collection: "owners" }
 );
 
-module.exports = model("Owner", orderItemWithQuantitySchema);
+module.exports = model("Owner", ownerSchema);
