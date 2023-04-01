@@ -6,6 +6,11 @@ const agentRoute = require("./routes/agent_route");
 const adminRoute = require("./routes/admin_route");
 const ownerRoute = require("./routes/owner_route");
 const productCategoryRoute = require("./routes/product_category_route");
+const feedbackRoute = require("./routes/feedback_route");
+const orderRoute = require("./routes/order_route");
+const orderitemWithQuantityRoute = require("./routes/orderitem_with_quantity_route");
+const productItemRoute = require("./routes/product_item_route");
+const stockRoute = require("./routes/stock_route");
 
 const app = express();
 const PORT = 5000;
@@ -23,6 +28,11 @@ app.use("/agent", agentRoute);
 app.use("/admin", adminRoute);
 app.use("/owner", ownerRoute);
 app.use("/productCategory", productCategoryRoute);
+app.use("/feedback", feedbackRoute);
+app.use("/order", orderRoute);
+app.use("/orderitemWithQuantity", orderitemWithQuantityRoute);
+app.use("/productItem", productItemRoute);
+app.use("/stock", stockRoute);
 
 app.listen(PORT, () => {
   console.log("Server is running on Port:", PORT);

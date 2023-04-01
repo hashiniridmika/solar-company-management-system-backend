@@ -25,7 +25,7 @@ const agentSchema = new mongoose.Schema(
       type: String,
     },
   },
-  { collation: "agents" }
+  { collection: "agents" }
 );
 
 module.exports = model("Agent", agentSchema);

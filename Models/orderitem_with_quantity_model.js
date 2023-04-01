@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 const Order = require("./order_model");
 const ProductItem = require("./product_item_model");
@@ -5,11 +6,11 @@ const ProductItem = require("./product_item_model");
 const orderItemWithQuantitySchema = new mongoose.Schema(
   {
     orderId: {
-      type: Schema.types.objectID,
+      type: Schema.Types.ObjectId,
       ref: "Order",
     },
     item: {
-      type: Schema.types.objectID,
+      type: Schema.Types.ObjectId,
       ref: "ProductItem",
     },
     quantity: {
@@ -19,7 +20,7 @@ const orderItemWithQuantitySchema = new mongoose.Schema(
       type: Number,
     },
   },
-  { collation: "orderItemWithQuantities" }
+  { collection: "orderItemWithQuantities" }
 );
 
 module.exports = model("OrderItemsWithQuantity", orderItemWithQuantitySchema);

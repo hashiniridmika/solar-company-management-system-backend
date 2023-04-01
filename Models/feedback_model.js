@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 const Agent = require("./agent_user_model");
 const Order = require("./order_model");
@@ -5,14 +6,14 @@ const Order = require("./order_model");
 const feedbackSchema = new mongoose.Schema(
   {
     agentID: {
-      type: Schema.types.objectID,
+      type: Schema.Types.ObjectId,
       ref: "Agent",
     },
-    OrderID: {
-      type: Schema.types.objectID,
+    orderID: {
+      type: Schema.Types.ObjectId,
       ref: "Order",
     },
-    feedback: {
+    feedbackDescription: {
       type: String,
     },
     ratings: {
@@ -22,7 +23,7 @@ const feedbackSchema = new mongoose.Schema(
       type: String,
     },
   },
-  { collation: "feedbacks" }
+  { collection: "feedbacks" }
 );
 
 module.exports = model("Feedback", feedbackSchema);

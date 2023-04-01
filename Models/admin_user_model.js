@@ -16,7 +16,7 @@ const adminSchema = new mongoose.Schema(
       type: String,
     },
   },
-  { collation: "admins" }
+  { collection: "admins" }
 );
 
 module.exports = model("Admin", adminSchema);

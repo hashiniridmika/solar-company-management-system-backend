@@ -3,16 +3,15 @@ const productCategoryRoute = express.Router();
 const ProductCategory = require("../models/product_category_model");
 
 productCategoryRoute.route("/create").post((req, res) => {
-  const { adminName, emailAddress, username, password } = req.body;
+  const { categoryName, categoryImage, categoryDescription } = req.body;
 
   const productCategory = new ProductCategory({
-    adminName,
-    emailAddress,
-    username,
-    password,
+    categoryName,
+    categoryImage,
+    categoryDescription,
   });
 
-  productCategory // Save admin user details.
+  productCategory // Save product category details.
     .save()
     .then((productCategory) => {
       res.send({ status: "success", productCategory });

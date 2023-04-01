@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 const Agent = require("./agent_user_model");
 const Admin = require("./admin_user_model");
@@ -17,15 +18,15 @@ const orderSchema = new mongoose.Schema(
       type: String,
     },
     orderBy: {
-      type: Schema.types.objectID,
+      type: Schema.Types.ObjectId,
       ref: "Agent",
     },
     handleBy: {
-      type: Schema.types.objectID,
+      type: Schema.Types.ObjectId,
       ref: "Admin",
     },
   },
-  { collation: "orders" }
+  { collection: "orders" }
 );
 
 module.exports = model("Order", orderSchema);
