@@ -5,20 +5,31 @@ const OrderitemWithQuantity = require("../models/orderitem_with_quantity_model")
 orderitemWithQuantityRoute.route("/create").post((req, res) => {
   const { orderId, item, quantity, price } = req.body;
 
-  const orderorderitemWithQuantity = new OrderitemWithQuantity({
+  const orderitemWithQuantity = new OrderitemWithQuantity({
     orderId,
     item,
     quantity,
     price,
   });
 
-  orderitemWithQuantity // Save order details.
+  orderitemWithQuantity // Save items and Quantities
     .save()
     .then((orderitemWithQuantity) => {
       res.send({ status: "success", orderitemWithQuantity });
     })
     .catch((e) => {
       res.send({ status: "failure" });
+    });
+});
+
+//View all order items and Quantities
+orderitemWithQuantityRoute.route("/view").get((req, res) => {
+  OrderitemWithQuantity.find()
+    .then((orderitemWithQuantity) => {
+      res.status(200).send({ status: "sucess", orderitemWithQuantity });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
     });
 });
 

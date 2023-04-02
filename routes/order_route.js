@@ -21,13 +21,24 @@ orderRoute.route("/create").post((req, res) => {
     handleBy,
   });
 
-  order // Save order details.
+  order // Save orders
     .save()
     .then((order) => {
       res.send({ status: "success", order });
     })
     .catch((e) => {
       res.send({ status: "failure" });
+    });
+});
+
+//View all orders
+orderRoute.route("/view").get((req, res) => {
+  Order.find()
+    .then((order) => {
+      res.status(200).send({ status: "sucess", order });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
     });
 });
 

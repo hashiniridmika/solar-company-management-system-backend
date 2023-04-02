@@ -29,4 +29,15 @@ productItemRoute.route("/create").post((req, res) => {
     });
 });
 
+//View all product items
+productItemRoute.route("/view").get((req, res) => {
+  ProductItem.find()
+    .then((productItem) => {
+      res.status(200).send({ status: "sucess", productItem });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+
 module.exports = productItemRoute;

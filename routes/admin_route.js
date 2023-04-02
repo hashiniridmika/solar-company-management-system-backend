@@ -17,4 +17,15 @@ adminRoute.route("/create").post((req, res) => {
     });
 });
 
+//View all agents
+adminRoute.route("/view").get((req, res) => {
+  Admin.find()
+    .then((admin) => {
+      res.status(200).send({ status: "sucess", admin });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+
 module.exports = adminRoute;

@@ -29,4 +29,15 @@ feedbackRoute.route("/create").post((req, res) => {
     });
 });
 
+//View all feedbacks
+feedbackRoute.route("/view").get((req, res) => {
+  Feedback.find()
+    .then((feedback) => {
+      res.status(200).send({ status: "sucess", feedback });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+
 module.exports = feedbackRoute;

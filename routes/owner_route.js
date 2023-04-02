@@ -16,5 +16,15 @@ ownerRoute.route("/create").post((req, res) => {
       res.send({ status: "failure" });
     });
 });
+//View all owner
+ownerRoute.route("/view").get((req, res) => {
+  Owner.find()
+    .then((owner) => {
+      res.status(200).send({ status: "sucess", owner });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
 
 module.exports = ownerRoute;

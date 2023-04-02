@@ -19,5 +19,15 @@ stockRoute.route("/create").post((req, res) => {
       res.send({ status: "failure" });
     });
 });
+//View all stock details
+stockRoute.route("/view").get((req, res) => {
+  Stock.find()
+    .then((stock) => {
+      res.status(200).send({ status: "sucess", stock });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
 
 module.exports = stockRoute;
