@@ -5,7 +5,7 @@ const ProductCategory = require("./product_category_model");
 const productItemSchema = new mongoose.Schema(
   {
     productName: {
-      type: Number,
+      type: String,
     },
     productDescription: {
       type: String,
@@ -14,7 +14,8 @@ const productItemSchema = new mongoose.Schema(
       type: String,
     },
     productStockCount: {
-      type: Number,
+      type: Schema.Types.ObjectId,
+      ref: "Stock",
     },
     category: {
       type: Schema.Types.ObjectId,

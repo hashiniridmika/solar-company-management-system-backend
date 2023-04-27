@@ -11,7 +11,7 @@ productItemRoute.route("/create").post((req, res) => {
     category,
   } = req.body;
 
-  const productItem = new ProductItem({
+  const productitem = new ProductItem({
     productName,
     productDescription,
     productImage,
@@ -19,10 +19,10 @@ productItemRoute.route("/create").post((req, res) => {
     category,
   });
 
-  productItem // Save product item details.
+  productitem // Save product item details.
     .save()
-    .then((productItem) => {
-      res.send({ status: "success", productItem });
+    .then((productitem) => {
+      res.send({ status: "success", productitem });
     })
     .catch((e) => {
       res.send({ status: "failure" });
