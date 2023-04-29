@@ -6,6 +6,7 @@ productItemRoute.route("/create").post((req, res) => {
   const {
     productName,
     productDescription,
+    price,
     productImage,
     productStockCount,
     category,
@@ -14,6 +15,7 @@ productItemRoute.route("/create").post((req, res) => {
   const productitem = new ProductItem({
     productName,
     productDescription,
+    price,
     productImage,
     productStockCount,
     category,

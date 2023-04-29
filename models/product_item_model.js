@@ -10,6 +10,9 @@ const productItemSchema = new mongoose.Schema(
     productDescription: {
       type: String,
     },
+    price: {
+      type: Number,
+    },
     productImage: {
       type: String,
     },
