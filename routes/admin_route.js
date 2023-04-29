@@ -10,7 +10,7 @@ adminRoute.route("/create").post((req, res) => {
   admin // Save admin user details.
     .save()
     .then((admin) => {
-      res.send({ status: "success", admin });
+      res.send({ status: "sucess", admin });
     })
     .catch((e) => {
       res.send({ status: "failure" });

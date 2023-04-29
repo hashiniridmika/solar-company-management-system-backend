@@ -18,9 +18,6 @@ const agentSchema = new mongoose.Schema(
     mobileNumber: {
       type: String,
     },
-    companyName: {
-      type: String,
-    },
     companyAddress: {
       type: String,
     },

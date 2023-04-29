@@ -13,7 +13,7 @@ stockRoute.route("/create").post((req, res) => {
   stock // Save product item details.
     .save()
     .then((stock) => {
-      res.send({ status: "success", stock });
+      res.send({ status: "sucess", stock });
     })
     .catch((e) => {
       res.send({ status: "failure" });

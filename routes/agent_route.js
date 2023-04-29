@@ -9,7 +9,6 @@ agentRoute.route("/create").post((req, res) => {
     password,
     emailAddress,
     mobileNumber,
-    companyName,
     companyAddress,
   } = req.body;
 
@@ -19,13 +18,12 @@ agentRoute.route("/create").post((req, res) => {
     password,
     emailAddress,
     mobileNumber,
-    companyName,
     companyAddress,
   });
   agent // Save user details.
     .save()
     .then((agent) => {
-      res.send({ status: "success", agent });
+      res.send({ status: "sucess", agent });
     })
     .catch((e) => {
       res.send({ status: "failure" });

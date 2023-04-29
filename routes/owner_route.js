@@ -10,7 +10,7 @@ ownerRoute.route("/create").post((req, res) => {
   owner // Save owner details.
     .save()
     .then((owner) => {
-      res.send({ status: "success", owner });
+      res.send({ status: "sucess", owner });
     })
     .catch((e) => {
       res.send({ status: "failure" });

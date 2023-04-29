@@ -24,7 +24,7 @@ orderRoute.route("/create").post((req, res) => {
   order // Save orders
     .save()
     .then((order) => {
-      res.send({ status: "success", order });
+      res.send({ status: "sucess", order });
     })
     .catch((e) => {
       res.send({ status: "failure" });

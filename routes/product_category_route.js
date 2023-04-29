@@ -14,7 +14,7 @@ productCategoryRoute.route("/create").post((req, res) => {
   productCategory // Save product category details.
     .save()
     .then((productCategory) => {
-      res.send({ status: "success", productCategory });
+      res.send({ status: "sucess", productCategory });
     })
     .catch((e) => {
       res.send({ status: "failure" });

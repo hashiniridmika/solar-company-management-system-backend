@@ -22,7 +22,7 @@ productItemRoute.route("/create").post((req, res) => {
   productitem // Save product item details.
     .save()
     .then((productitem) => {
-      res.send({ status: "success", productitem });
+      res.send({ status: "sucess", productitem });
     })
     .catch((e) => {
       res.send({ status: "failure" });

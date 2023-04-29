@@ -22,7 +22,7 @@ feedbackRoute.route("/create").post((req, res) => {
   feedback // Save feedback details.
     .save()
     .then((feedback) => {
-      res.send({ status: "success", feedback });
+      res.send({ status: "sucess", feedback });
     })
     .catch((e) => {
       res.send({ status: "failure" });

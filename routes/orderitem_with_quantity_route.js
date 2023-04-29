@@ -15,7 +15,7 @@ orderitemWithQuantityRoute.route("/create").post((req, res) => {
   orderitemWithQuantity // Save items and Quantities
     .save()
     .then((orderitemWithQuantity) => {
-      res.send({ status: "success", orderitemWithQuantity });
+      res.send({ status: "sucess", orderitemWithQuantity });
     })
     .catch((e) => {
       res.send({ status: "failure" });

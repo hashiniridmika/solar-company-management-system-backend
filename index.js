@@ -13,7 +13,7 @@ const productItemRoute = require("./routes/product_item_route");
 const stockRoute = require("./routes/stock_route");
 
 const app = express();
-const PORT = 5000;
+const PORT = 5002;
 
 mongoose.connect(process.env.url);
 
@@ -31,7 +31,7 @@ app.use("/productCategory", productCategoryRoute);
 app.use("/feedback", feedbackRoute);
 app.use("/order", orderRoute);
 app.use("/orderitemWithQuantity", orderitemWithQuantityRoute);
-app.use("/productItem", productItemRoute);
+app.use("/productitem", productItemRoute);
 app.use("/stock", stockRoute);
 
 app.listen(PORT, () => {
