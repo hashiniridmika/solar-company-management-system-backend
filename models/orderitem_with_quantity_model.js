@@ -16,10 +16,6 @@ const orderItemWithQuantitySchema = new mongoose.Schema(
     quantity: {
       type: Number,
     },
-    price: {
-      type: Schema.Types.ObjectId,
-      ref: "ProductItem",
-    },
   },
   { collection: "orderItemWithQuantities" }
 );

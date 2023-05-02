@@ -9,7 +9,6 @@ orderitemWithQuantityRoute.route("/create").post((req, res) => {
     orderId,
     item,
     quantity,
-    price,
   });
 
   orderitemWithQuantity // Save items and Quantities

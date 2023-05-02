@@ -34,6 +34,8 @@ productItemRoute.route("/create").post((req, res) => {
 //View all product items
 productItemRoute.route("/view").get((req, res) => {
   ProductItem.find()
+    .populate("productStockCount")
+    .populate("category")
     .then((productItem) => {
       res.status(200).send({ status: "sucess", productItem });
     })

@@ -22,6 +22,8 @@ stockRoute.route("/create").post((req, res) => {
 //View all stock details
 stockRoute.route("/view").get((req, res) => {
   Stock.find()
+    .populate("category")
+    .populate("item")
     .then((stock) => {
       res.status(200).send({ status: "sucess", stock });
     })
