@@ -34,6 +34,8 @@ orderRoute.route("/create").post((req, res) => {
 //View all orders
 orderRoute.route("/view").get((req, res) => {
   Order.find()
+    .populate("orderBy")
+    .populate("handleBy")
     .then((order) => {
       res.status(200).send({ status: "sucess", order });
     })
