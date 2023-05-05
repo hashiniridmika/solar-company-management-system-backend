@@ -14,6 +14,9 @@ const orderSchema = new mongoose.Schema(
     discount: {
       type: String,
     },
+    paymentType: {
+      type: String,
+    },
     billValue: {
       type: String,
     },
