@@ -41,4 +41,17 @@ agentRoute.route("/view").get((req, res) => {
     });
 });
 
+//Update agents
+agentRoute.route("/update").post((req, res) => {
+  const { agent } = req.body;
+  console.log(doctor);
+  Agent.findByIdAndUpdate(agent._id, agent)
+    .then((agent) => {
+      res.status(200).send({ status: "sucess", agent });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+
 module.exports = agentRoute;
