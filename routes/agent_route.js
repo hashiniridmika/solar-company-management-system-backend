@@ -64,7 +64,6 @@ agentRoute.route("/sign-in").post((req, res) => {
         const {
           agentName,
           username,
-          password,
           emailAddress,
           mobileNumber,
           companyAddress,
@@ -73,7 +72,6 @@ agentRoute.route("/sign-in").post((req, res) => {
         const sendUser = {
           agentName,
           username,
-          password,
           emailAddress,
           mobileNumber,
           companyAddress,
