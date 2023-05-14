@@ -32,4 +32,17 @@ stockRoute.route("/view").get((req, res) => {
     });
 });
 
+//Update stock
+stockRoute.route("/update").post((req, res) => {
+  const { stock } = req.body;
+  console.log(stock);
+  Stock.findByIdAndUpdate(stock._id, stock)
+    .then((stock) => {
+      res.status(200).send({ status: "sucess", stock });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+
 module.exports = stockRoute;
