@@ -36,8 +36,20 @@ productItemRoute.route("/view").get((req, res) => {
   ProductItem.find()
     .populate("productStockCount")
     .populate("category")
-    .then((productItem) => {
-      res.status(200).send({ status: "sucess", productItem });
+    .then((productitem) => {
+      res.status(200).send({ status: "sucess", productitem });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+//Update productItem
+productItemRoute.route("/update").post((req, res) => {
+  const { productitem } = req.body;
+  console.log(productitem);
+  ProductItem.findByIdAndUpdate(productitem._id, productitem)
+    .then((productitem) => {
+      res.status(200).send({ status: "sucess", productitem });
     })
     .catch((e) => {
       res.status(400).send({ status: "faliure" });
