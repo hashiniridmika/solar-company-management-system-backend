@@ -14,7 +14,7 @@ const stockSchema = new mongoose.Schema(
       ref: "ProductItem",
     },
     stockCount: {
-      type: String,
+      type: Number,
     },
     stockStatus: {
       type: String,
