@@ -4,19 +4,21 @@ const Feedback = require("../models/feedback_model");
 
 feedbackRoute.route("/create").post((req, res) => {
   const {
-    agentID,
-    orderID,
+    agentId,
+    orderId,
     feedbackDescription,
     ratings,
     feedbackDateandTime,
+    productId,
   } = req.body;
 
   const feedback = new Feedback({
-    agentID,
-    orderID,
+    agentId,
+    orderId,
     feedbackDescription,
     ratings,
     feedbackDateandTime,
+    productId,
   });
 
   feedback // Save feedback details.

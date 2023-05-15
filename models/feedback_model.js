@@ -2,14 +2,15 @@ const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 const Agent = require("./agent_user_model");
 const Order = require("./order_model");
+const ProductItem = require("./product_item_model");
 
 const feedbackSchema = new mongoose.Schema(
   {
-    agentID: {
+    agentId: {
       type: Schema.Types.ObjectId,
       ref: "Agent",
     },
-    orderID: {
+    orderId: {
       type: Schema.Types.ObjectId,
       ref: "Order",
     },
@@ -21,6 +22,10 @@ const feedbackSchema = new mongoose.Schema(
     },
     feedbackDateandTime: {
       type: String,
+    },
+    productId: {
+      type: Schema.Types.ObjectId,
+      ref: "ProductItem",
     },
   },
   { collection: "feedbacks" }
