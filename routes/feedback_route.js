@@ -40,4 +40,20 @@ feedbackRoute.route("/view").get((req, res) => {
     });
 });
 
+//Get reviews for products
+feedbackRoute.route("/get-feedbacks-by-product-id").post((req, res) => {
+  const { product } = req.body;
+  console.log(product);
+  Feedback.find({ product })
+    .then((feedback) => {
+      res.status(200).send({
+        status: "Success",
+        feedback,
+      });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+
 module.exports = feedbackRoute;
