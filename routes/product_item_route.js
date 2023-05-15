@@ -60,7 +60,7 @@ productItemRoute.route("/update").post((req, res) => {
 productItemRoute.route("/get-products-by-catergory-id").post((req, res) => {
   const { category } = req.body;
   console.log(category);
-  ProductItem.find(category._id)
+  ProductItem.find({ category })
     .then((productitem) => {
       res.status(200).send({
         status: "Success",
