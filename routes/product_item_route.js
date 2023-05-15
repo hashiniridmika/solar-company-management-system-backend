@@ -56,4 +56,21 @@ productItemRoute.route("/update").post((req, res) => {
     });
 });
 
+//View all food accoding to catergory ID
+productItemRoute.route("/get-product-by-catergory-id").post((req, res) => {
+  const { productitem } = req.body;
+  ProductItem.find({ productitem })
+    .populate("category")
+    .then((productitem) => {
+      // const procuctIds = products.map((product) => product._id); get products id's only
+      res.status(200).send({
+        status: "Success",
+        productitem,
+      });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+
 module.exports = productItemRoute;
