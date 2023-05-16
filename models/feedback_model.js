@@ -23,6 +23,9 @@ const feedbackSchema = new mongoose.Schema(
     feedbackDateandTime: {
       type: String,
     },
+    sentiment: {
+      type: String,
+    },
     productId: {
       type: Schema.Types.ObjectId,
       ref: "ProductItem",

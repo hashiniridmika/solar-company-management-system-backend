@@ -9,6 +9,7 @@ feedbackRoute.route("/create").post((req, res) => {
     feedbackDescription,
     ratings,
     feedbackDateandTime,
+    sentiment,
     productId,
   } = req.body;
 
@@ -18,6 +19,7 @@ feedbackRoute.route("/create").post((req, res) => {
     feedbackDescription,
     ratings,
     feedbackDateandTime,
+    sentiment,
     productId,
   });
 
