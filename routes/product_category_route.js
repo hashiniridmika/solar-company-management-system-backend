@@ -31,4 +31,17 @@ productCategoryRoute.route("/view").get((req, res) => {
       res.status(400).send({ status: "faliure" });
     });
 });
+
+//Update productCategory
+productCategoryRoute.route("/update").post((req, res) => {
+  const { productCategory } = req.body;
+  console.log(productCategory);
+  ProductCategory.findByIdAndUpdate(productCategory._id, productCategory)
+    .then((productCategory) => {
+      res.status(200).send({ status: "sucess", productCategory });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
 module.exports = productCategoryRoute;

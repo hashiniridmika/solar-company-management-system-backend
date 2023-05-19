@@ -11,6 +11,7 @@ const orderRoute = require("./routes/order_route");
 const orderitemWithQuantityRoute = require("./routes/orderitem_with_quantity_route");
 const productItemRoute = require("./routes/product_item_route");
 const stockRoute = require("./routes/stock_route");
+const userTypeRoute = require("./routes/user_type_route");
 
 const app = express();
 const PORT = 5002;
@@ -33,6 +34,7 @@ app.use("/order", orderRoute);
 app.use("/orderitemWithQuantity", orderitemWithQuantityRoute);
 app.use("/productitem", productItemRoute);
 app.use("/stock", stockRoute);
+app.use("/userType", userTypeRoute);
 
 app.listen(PORT, () => {
   console.log("Server is running on Port:", PORT);
