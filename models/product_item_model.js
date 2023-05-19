@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 const ProductCategory = require("./product_category_model");
-const Stock = require("./stock_model");
 
 const productItemSchema = new mongoose.Schema(
   {
@@ -15,7 +14,7 @@ const productItemSchema = new mongoose.Schema(
       type: String,
     },
     productImage: {
-      type: String,
+      type: Array,
     },
     productStockCount: {
       type: Schema.Types.ObjectId,

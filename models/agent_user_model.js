@@ -21,6 +21,9 @@ const agentSchema = new mongoose.Schema(
     companyAddress: {
       type: String,
     },
+    image: {
+      type: String,
+    },
   },
   { collection: "agents" }
 );

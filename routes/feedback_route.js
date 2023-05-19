@@ -3,15 +3,16 @@ const feedbackRoute = express.Router();
 const Feedback = require("../models/feedback_model");
 
 feedbackRoute.route("/create").post((req, res) => {
+  console.log(req.body);
+  const { review } = req.body;
   const {
     agentId,
     orderId,
     feedbackDescription,
     ratings,
     feedbackDateandTime,
-    sentiment,
     productId,
-  } = req.body;
+  } = review;
 
   const feedback = new Feedback({
     agentId,
@@ -19,7 +20,6 @@ feedbackRoute.route("/create").post((req, res) => {
     feedbackDescription,
     ratings,
     feedbackDateandTime,
-    sentiment,
     productId,
   });
 
@@ -46,15 +46,40 @@ feedbackRoute.route("/view").get((req, res) => {
 
 //Get reviews for products
 feedbackRoute.route("/get-feedbacks-by-product-id").post((req, res) => {
-  const { product } = req.body;
-  console.log(product);
-  Feedback.find({ product })
+  const { productId } = req.body;
+  console.log(productId);
+  Feedback.find({ productId })
+    .populate("agentId")
+    .then((feedback) => {
+      let totlRating = 0;
+
+      feedback.forEach((fb) => {
+        totlRating = totlRating + parseInt(fb.ratings);
+      });
+
+      res.status(200).send({
+        status: "Success",
+        feedback,
+        averageRating: Math.round(totlRating / feedback.length),
+      });
+    })
+    .catch((e) => {
+      res.status(400).send({ status: "faliure" });
+    });
+});
+
+// get feedback for order user and product
+feedbackRoute.route("/get-by-order-user-product-id").post((req, res) => {
+  const { productId, userId, orderId } = req.body;
+  Feedback.find({ agentId: userId, orderId, productId })
+    .populate("agentId")
     .then((feedback) => {
       res.status(200).send({
         status: "Success",
         feedback,
       });
     })
+
     .catch((e) => {
       res.status(400).send({ status: "faliure" });
     });

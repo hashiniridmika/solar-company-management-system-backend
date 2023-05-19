@@ -55,10 +55,9 @@ agentRoute.route("/update").post((req, res) => {
 });
 
 //Agent Signin
-
 agentRoute.route("/sign-in").post((req, res) => {
-  const { username, password } = req.body;
-  Agent.findOne({ username: username, password: password })
+  const { email, password } = req.body;
+  Agent.findOne({ emailAddress: email, password: password })
     .then((agent) => {
       if (agent) {
         const {
@@ -67,6 +66,8 @@ agentRoute.route("/sign-in").post((req, res) => {
           emailAddress,
           mobileNumber,
           companyAddress,
+          _id,
+          image,
         } = agent;
 
         const sendUser = {
@@ -75,6 +76,8 @@ agentRoute.route("/sign-in").post((req, res) => {
           emailAddress,
           mobileNumber,
           companyAddress,
+          image,
+          _id,
         };
 
         res.status(200).send({

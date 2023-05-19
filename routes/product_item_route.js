@@ -56,10 +56,9 @@ productItemRoute.route("/update").post((req, res) => {
     });
 });
 
-//View all products accoding to catergory ID
+// //View all products accoding to catergory ID
 productItemRoute.route("/get-products-by-catergory-id").post((req, res) => {
   const { category } = req.body;
-  console.log(category);
   ProductItem.find({ category })
     .then((productitem) => {
       res.status(200).send({
