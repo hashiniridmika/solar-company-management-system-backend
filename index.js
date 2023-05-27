@@ -13,6 +13,7 @@ const productItemRoute = require("./routes/product_item_route");
 const stockRoute = require("./routes/stock_route");
 const userTypeRoute = require("./routes/user_type_route");
 const recommendationRoute = require("./routes/recomandation_route");
+const employeeRoute = require("./routes/employees_route");
 
 const app = express();
 const PORT = 5002;
@@ -37,6 +38,7 @@ app.use("/productitem", productItemRoute);
 app.use("/stock", stockRoute);
 app.use("/userType", userTypeRoute);
 app.use("/recommendation", recommendationRoute);
+app.use("/employee", employeeRoute);
 
 app.listen(PORT, () => {
   console.log("Server is running on Port:", PORT);
