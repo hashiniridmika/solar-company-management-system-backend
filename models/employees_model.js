@@ -8,7 +8,7 @@ const employeeSchema = new mongoose.Schema(
     name: {
       type: String,
     },
-    emailAddress: {
+    email: {
       type: String,
     },
     username: {

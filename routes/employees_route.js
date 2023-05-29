@@ -4,11 +4,11 @@ const Employee = require("../models/employees_model");
 const jwt = require("jsonwebtoken");
 
 employeeRoute.route("/create").post((req, res) => {
-  const { name, emailAddress, username, password, role } = req.body;
+  const { name, email, username, password, role } = req.body;
 
   const employee = new Employee({
     name,
-    emailAddress,
+    email,
     username,
     password,
     role,
@@ -37,11 +37,10 @@ employeeRoute.route("/view").get((req, res) => {
 
 // Employee sign-in
 employeeRoute.route("/sign-in").post((req, res) => {
-  const { emailAddress, password } = req.body;
-  Employee.findOne({ emailAddress })
+  const { email, password } = req.body;
+  Employee.findOne({ emailAddress: email })
     .populate("role")
     .then((employee) => {
-      console.log(employee);
       if (employee && employee.password === password) {
         const token = jwt.sign(
           {

@@ -24,6 +24,7 @@ orderitemWithQuantityRoute.route("/create").post((req, res) => {
 //View all order items and Quantities
 orderitemWithQuantityRoute.route("/view").get((req, res) => {
   OrderitemWithQuantity.find()
+    .populate("item")
     .then((orderitemWithQuantity) => {
       res.status(200).send({ status: "sucess", orderitemWithQuantity });
     })

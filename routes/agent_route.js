@@ -3,24 +3,10 @@ const agentRoute = express.Router();
 const Agent = require("../models/agent_user_model");
 
 agentRoute.route("/create").post((req, res) => {
-  const {
-    agentName,
-    username,
-    password,
-    emailAddress,
-    mobileNumber,
-    companyAddress,
-  } = req.body;
+  const { agent } = req.body;
+  const newAgent = new Agent({ ...agent });
 
-  const agent = new Agent({
-    agentName,
-    username,
-    password,
-    emailAddress,
-    mobileNumber,
-    companyAddress,
-  });
-  agent // Save user details.
+  newAgent // Save user details.
     .save()
     .then((agent) => {
       res.send({ status: "sucess", agent });
