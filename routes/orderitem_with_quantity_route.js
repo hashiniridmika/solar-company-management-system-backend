@@ -3,7 +3,7 @@ const orderitemWithQuantityRoute = express.Router();
 const OrderitemWithQuantity = require("../models/orderitem_with_quantity_model");
 
 orderitemWithQuantityRoute.route("/create").post((req, res) => {
-  const { orderId, item, quantity, price } = req.body;
+  const { orderId, item, quantity } = req.body;
 
   const orderitemWithQuantity = new OrderitemWithQuantity({
     orderId,
@@ -22,8 +22,9 @@ orderitemWithQuantityRoute.route("/create").post((req, res) => {
 });
 
 //View all order items and Quantities
-orderitemWithQuantityRoute.route("/view").get((req, res) => {
-  OrderitemWithQuantity.find()
+orderitemWithQuantityRoute.route("/get-all-by-order-id").post((req, res) => {
+  const { order_id } = req.body;
+  OrderitemWithQuantity.find({ orderId: order_id })
     .populate("item")
     .then((orderitemWithQuantity) => {
       res.status(200).send({ status: "sucess", orderitemWithQuantity });

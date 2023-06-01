@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 const Agent = require("./agent_user_model");
 const Admin = require("./admin_user_model");
+const OrderItemsWithQuantity = require("./orderitem_with_quantity_model");
 
 const orderSchema = new mongoose.Schema(
   {
@@ -27,6 +28,10 @@ const orderSchema = new mongoose.Schema(
     handleBy: {
       type: Schema.Types.ObjectId,
       ref: "Admin",
+    },
+    orderItems: {
+      type: Schema.Types.ObjectId,
+      ref: "OrderItemsWithQuantity",
     },
   },
   { collection: "orders" }
